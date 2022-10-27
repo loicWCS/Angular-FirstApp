@@ -1,0 +1,10 @@
+<h2>{{ fiche }}</h2>
+<div class="contactCard">
+  <div class="img"><img [src]="user.photo" alt="" /></div>
+  <div class="id">
+    Nom:{{ user.name }} Prénom:{{ user.firstName }} {{ user.quote }}
+  </div>
+  <input type="text" [(ngModel)]="user.quote" />
+  <button (click)="toggle()">Show my age</button>
+  <div class="age" [hidden]="isDisplay">{{ user.age }} years old</div>
+</div>
