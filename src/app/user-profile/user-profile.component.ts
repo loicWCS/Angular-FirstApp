@@ -7,18 +7,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
   fiche: string = 'Fiche de contact';
-  user = {
+  // user = {
+  //   name: 'Doe',
+  //   firstName: 'John',
+  //   age: 25,
+  //   quote: 'beer or not to beer',
+  //   photo: 'https://randomuser.me/api/portraits/lego/2.jpg',
+  // };
+  isDisplay: boolean = true;
+  toggle() {
+    this.isDisplay = !this.isDisplay;
+  }
+
+  firstUser: User = new User({
     name: 'Doe',
     firstName: 'John',
     age: 25,
     quote: 'beer or not to beer',
     photo: 'https://randomuser.me/api/portraits/lego/2.jpg',
-  };
-  isDisplay: boolean = true;
-  toggle() {
-    this.isDisplay = !this.isDisplay;
-  }
+  });
   constructor() {}
 
   ngOnInit(): void {}
+}
+export interface UserInterface {
+  name: string;
+  firstName: string;
+  age: number;
+  quote: string;
+  photo: string;
+}
+export class User {
+  name: string;
+  firstName: string;
+  age: number;
+  quote: string;
+  photo: string;
+  constructor({ name, firstName, age, quote, photo }: UserInterface) {
+    this.name = name;
+    this.firstName = firstName;
+    this.age = age;
+    this.quote = quote;
+    this.photo = photo;
+  }
 }
